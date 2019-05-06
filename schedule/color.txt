@@ -1,0 +1,15 @@
+-- Admin --
+#1E9AE0
+#D4E8CC
+#FFF8ED
+#E8CCDD
+#9EBEFF
+
+-- User --
+#01E076
+#E3E8CC
+#FFF8ED
+#E8CECC
+#CF9EFF
+
+https://color.adobe.com/pt/create
