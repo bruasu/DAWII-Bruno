@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended: false}));
 //routes
 app.use('/api/login', require('./routers/login.route'));
 app.use('/api/home',require('./routers/home.route'));
+app.use('/api/user',require('./routers/user.route'));
 
 //starting the server
 
