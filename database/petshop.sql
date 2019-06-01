@@ -3,7 +3,7 @@ use petshop;
 
 create table users(
     id_user int not null primary key auto_increment,
-    nome varchar(250) not null,
+    name varchar(250) not null,
     login varchar(250) not null UNIQUE,
     password varchar(250) not null,
     email varchar(250) not null UNIQUE,
@@ -33,7 +33,6 @@ CREATE TABLE products(
     offer_price FLOAT NULL,
     description VARCHAR(250),
     quantity int NULL,
-    image varchar(250) NULL,
     status boolean,    
     foreign key (id_category) references categories(id_category)
 );
@@ -43,5 +42,13 @@ CREATE TABLE sales_product(
     id_product int not null,
     quantity int null,
     value_product float
+);
+
+CREATE TABLE imagesProducts(
+	id_image int not null primary key auto_increment,
+	id_product int not null,
+	name varchar(255) null,
+	address_img varchar(255) not null,
+	foreign key (id_product) references products(id_product)
 );
 

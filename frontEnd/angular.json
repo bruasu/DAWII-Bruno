@@ -28,7 +28,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/popper/client/mocha/client.min.js",
+              "lib/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "es5BrowserSupport": true
