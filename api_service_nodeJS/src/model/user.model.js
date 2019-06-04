@@ -20,6 +20,18 @@ class user extends User{
             fun(err, rows, fields);
         });
     }
+    updatePasswordUser(fun){
+        let query = "update users set password = ? where id_user = ?";
+        this.mysqlConnection.query(query, [this.password, this.id_user], (err, rows, fields) => {
+            fun(err, rows, fields);
+        });
+    }
+    updateTypeUser(fun){
+        let query = "update users set type_user = ? where id_user = ?";
+        this.mysqlConnection.query(query, [this.type_user, this.id_user], (err, rows, fields) => {
+            fun(err, rows, fields);
+        });
+    }
 
 }
 

@@ -63,6 +63,44 @@ class User extends user{
         }
         
     }
+    cUpdatePassword(data, res){
+        this.setUserdatas(data);
+
+        if(this.password == this.repassword){
+            this.updatePasswordUser((err, rows, fields) => {
+                if(!err){
+                    if(rows){
+                    res.json({
+                        msj: "modification success"
+                        });
+                    }
+                }
+            });
+        }else{
+            res.json({
+                err: 'password not match'
+            });
+        }
+    }
+    cUpdateTypeUser(data, res){
+        this.setUserdatas(data);
+
+        if(this.type_user){
+            this.updateTypeUser((err, rows, fields) => {
+                if(!err){
+                    if(rows){
+                        res.json({
+                            msj: "modification success"
+                        });
+                    }
+                }
+            });
+        }else{
+            res.json({
+                err: "missing data"
+            });
+        }
+    }
 
 }
 

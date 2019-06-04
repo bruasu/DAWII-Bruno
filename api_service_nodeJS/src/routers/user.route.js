@@ -14,8 +14,16 @@ router.post('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
+    let update = req.body.update;
     let user = new User();
-    user.cUpdateUser(req.body, res);
+
+    if(update == 'user'){
+        user.cUpdateUser(req.body, res);
+    }else if(update == 'password'){
+        user.cUpdatePassword(req.body, res);
+    }else if(update == 'typeUser'){
+        user.cUpdateTypeUser(req.body, res);
+    }
 
 });
 
