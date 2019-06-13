@@ -1,3 +1,109 @@
 path: /user
-    method: GET
+    description: 
+        - user registration
+    method: POST
+        send:
+            {
+	            "name": "Bruno",
+	            "login": "Bruno4",
+	            "password": "123456",
+	            "repassword": "123456",
+	            "email": "bruno4@gmail.com",
+	            "type_user": "user"
+            }
+        response:
+            - success:
+                {
+                  "insertUser": true,
+                  "id_user": 22
+                }
+            - errors:
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -value in white
+                    {
+                        err: "value in white"
+                    }
+
+* -------------------------------------------- *
+
+path: /user
+    description: 
+        - update user
+    method: PUT
+        send:
+            {
+                "id_user": 1,
+                "name": "Bruno",
+                "login": "bruasu",
+                "email": "bruasu@gmail.com",
+                "update": "user"
+            }
+        response:
+            - success:
+                {
+                "msj": "modification success"
+                }
+            - errors:
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+            
+* -------------------------------------------- *
+
+path: /user
+    description: 
+        - update type user
+    method: PUT
+        send:
+            {
+               	"id_user": 1,
+                "type_user": "admin",
+                "update": "typeUser"
+            }
+        response:
+            - success:
+                {
+                "msj": "modification success"
+                }
+            - errors:
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -not there dates to be modified
+                    {
+                      err: "missing data"
+                    }
+
+* -------------------------------------------- *
+
+path: /user
+    description: 
+        - update password user
+    method: PUT
+        send:
+            {
+                "id_user": 1,
+                "password": "123456",
+                "repassword": "123456",
+                "update": "password"	
+            }
+        response:
+            - success:
+                {
+                "msj": "modification success"
+                }
+            - errors:
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -password not match
+                    {
+                      err: 'password not match'
+                    }
         
