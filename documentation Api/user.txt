@@ -1,4 +1,4 @@
-path: /user
+path: /api/user
     description: 
         - user registration
     method: POST
@@ -12,12 +12,12 @@ path: /user
 	            "type_user": "user"
             }
         response:
-            - success:
+            - success: ->status = 200
                 {
                   "insertUser": true,
                   "id_user": 22
                 }
-            - errors:
+            - errors: ->status = 400
                 -errors in mysql
                     {
                         "err": "message"                    
@@ -29,7 +29,7 @@ path: /user
 
 * -------------------------------------------- *
 
-path: /user
+path: /api/user
     description: 
         - update user
     method: PUT
@@ -42,11 +42,11 @@ path: /user
                 "update": "user"
             }
         response:
-            - success:
+            - success:->status = 200
                 {
                 "msj": "modification success"
                 }
-            - errors:
+            - errors: ->status = 400
                 -errors in mysql
                     {
                         "err": "message"                    
@@ -54,7 +54,7 @@ path: /user
             
 * -------------------------------------------- *
 
-path: /user
+path: /api/user
     description: 
         - update type user
     method: PUT
@@ -65,11 +65,11 @@ path: /user
                 "update": "typeUser"
             }
         response:
-            - success:
+            - success:->status = 200
                 {
                 "msj": "modification success"
                 }
-            - errors:
+            - errors: ->status = 400
                 -errors in mysql
                     {
                         "err": "message"                    
@@ -81,7 +81,7 @@ path: /user
 
 * -------------------------------------------- *
 
-path: /user
+path: /api/user
     description: 
         - update password user
     method: PUT
@@ -93,11 +93,11 @@ path: /user
                 "update": "password"	
             }
         response:
-            - success:
+            - success:->status = 200
                 {
                 "msj": "modification success"
                 }
-            - errors:
+            - errors: ->status = 400
                 -errors in mysql
                     {
                         "err": "message"                    

@@ -1,0 +1,30 @@
+path: /api/login
+    description: 
+        - login user
+    method: POST
+        send:
+            {
+	            "login": "bruasu",
+	            "password": "123456"
+            }
+        response:
+            - success: ->status = 200
+                {
+                    "authentication": true,
+                    "typeUser": "admin"
+                }
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -authentication not valid
+                    {
+                        authentication: false
+                    }
+observation:
+    -typeUser:
+        -admin
+        -user
+
+* -------------------------------------------- *

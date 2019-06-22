@@ -4,7 +4,7 @@ const router = Router();
 const User = require('../controller/User.controller');
 
 router.all('/', (req, res, next) => {
-    console.log('method all');
+    //console.log('method all');
     next();
 });
 

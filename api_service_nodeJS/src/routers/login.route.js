@@ -4,7 +4,7 @@ const router = Router();
 const mysqlConnection = require('../data/database');
 
 router.all('/', (req, res, next) => {
-    console.log('method all');
+    //console.log('method all');
     next();
 });
 

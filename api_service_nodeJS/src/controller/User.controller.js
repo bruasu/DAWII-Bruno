@@ -20,12 +20,12 @@ class User extends user{
                     }
                 }else{
                     if(err.code == "ER_DUP_ENTRY"){
-                        res.json({
+                        res.status(400).json({
                             err: "Duplicate entry",
                             msj: err.sqlMessage
                         });
                     }else{
-                        res.json(err.sqlMessage);
+                        res.status(400).json(err.sqlMessage);
                     }
                 }
                 
@@ -50,14 +50,14 @@ class User extends user{
                          });
                     }
                 }else{
-                    res.json({
+                    res.status(400).json({
                         err: err.sqlMessage
                     });
                 }
             });
 
         }else{
-            res.json({
+            res.status(400).json({
                 err: "value in white"
             });
         }
@@ -77,7 +77,7 @@ class User extends user{
                 }
             });
         }else{
-            res.json({
+            res.status(400).json({
                 err: 'password not match'
             });
         }
@@ -96,7 +96,7 @@ class User extends user{
                 }
             });
         }else{
-            res.json({
+            res.status(400).json({
                 err: "missing data"
             });
         }
