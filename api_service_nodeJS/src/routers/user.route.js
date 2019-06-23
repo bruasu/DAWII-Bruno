@@ -27,4 +27,19 @@ router.put('/', (req, res) => {
 
 });
 
+router.get('/:typeSearch/:login', (req, res) => {
+    let typeSearch = req.params.typeSearch;
+    let login = req.params.login
+    let user = new User();
+    
+    console.log(typeSearch, login);
+    let date = {
+        login: login
+    }
+
+    if(typeSearch == 'login'){
+        user.cCheckLoginUser(date, res);
+    }
+});
+
 module.exports = router;

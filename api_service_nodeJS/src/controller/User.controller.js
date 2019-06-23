@@ -101,6 +101,29 @@ class User extends user{
             });
         }
     }
+    cCheckLoginUser(data, res){
+        this.setUserdatas(data);
+
+        if(this.login){
+            this.selectLoginUserCheck((err, rows, fields) => {
+                if(!err){
+                    if(rows[0]){
+                        res.json({
+                            msj: true
+                        });
+                    }else{
+                        res.status(400).json({
+                            msj: false
+                        });
+                    }
+                }else{
+                    res.status(400).json({
+                        err: "missing data"
+                    });
+                }
+            });
+        }
+    }
 
 }
 

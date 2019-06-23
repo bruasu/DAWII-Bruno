@@ -32,6 +32,12 @@ class user extends User{
             fun(err, rows, fields);
         });
     }
+    selectLoginUserCheck(fun){
+        let query = "select * from users where login = ? limit 1";
+        this.mysqlConnection.query(query, [this.login], (err, rows, fields) => {
+            fun(err, rows, fields);
+        });
+    }
 
 }
 

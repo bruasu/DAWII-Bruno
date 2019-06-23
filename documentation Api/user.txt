@@ -107,3 +107,29 @@ path: /api/user
                       err: 'password not match'
                     }
         
+* -------------------------------------------- *
+
+path: /api/user
+    description: 
+        - check login user exists
+    method: GET
+        send:
+            params Url
+           -> /login/bruasu
+            description -> typeSearch / value shearch       
+        response:
+            - success:->status = 200
+                {
+                "msj": "true"
+                }
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -not exists
+                    {
+                      msj: "false"
+                    }
+
+* -------------------------------------------- *

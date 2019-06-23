@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
   repassword: string;
-  type_user: string;
+  type_user: string = "user";
   
   @ViewChild("Dpassword") Dpassword;
   @ViewChild('Drepassword') Drepassword;
@@ -23,11 +23,13 @@ export class RegisterComponent implements OnInit {
   @ViewChild('DpasswordAlert') DpasswordAlert;
   @ViewChild('DrepasswordAlert') DrepasswordAlert;
 
+  statusSearchUserLogin: boolean;
+  statusAlertUserLogin: number = 0;
+
   constructor(
     private Suser: UserService,
     private render: Renderer2
   ) { 
-    this.type_user = "user";
   }
   
   ngOnInit() {
@@ -88,5 +90,43 @@ export class RegisterComponent implements OnInit {
       }
 
     }, 500);
+  }
+  checkLoginUserSearch(){    
+    //request server
+    if(this.login.length > 5){
+      this.statusSearchUserLogin = true;
+
+      setTimeout(()=>{
+        console.log('get');
+        if(this.statusSearchUserLogin){
+          this.statusSearchUserLogin = false;
+          console.log('get request');
+          this.Suser.checkLoginUser(this.login).subscribe((res) => {         
+            
+            if(res.msj){
+              this.statusAlertUserLogin = 2;
+            this.render.removeClass(this.Dlogin.nativeElement, 'is-valid');
+            this.render.addClass(this.Dlogin.nativeElement, 'is-invalid');          
+          }
+        },(err) => {
+          if(err.status == 400){
+            if(err.error.msj == false){
+              this.statusAlertUserLogin = 0;  
+              this.render.removeClass(this.Dlogin.nativeElement, 'is-invalid');
+              this.render.addClass(this.Dlogin.nativeElement, 'is-valid');                
+            }            
+          }
+        });
+      }
+      }, 1000);
+    }
+    //verific requeriments
+    if(this.login.length > 5){
+      this.statusAlertUserLogin = 0;
+    }else{
+      this.statusAlertUserLogin = 1;
+      this.render.removeClass(this.Dlogin.nativeElement, 'is-valid');
+      this.render.removeClass(this.Dlogin.nativeElement, 'is-invalid');
+    }
   }
 }
