@@ -8,11 +8,11 @@
           </div>
           <div class="form-group">
             <label for="name">Nombre:</label>
-            <input #Dname class="form-control" type="text" name="name" id="name" [(ngModel)]="name" required>
+            <input #Dname class="form-control" type="text" name="name" id="name" [(ngModel)]="name" (blur)="checkName()" (keyup)="checkName()" required>
           </div>
           <div class="form-group">
             <label for="login">Nombre de Usuario:</label>
-            <input #Dlogin class="form-control" type="text" name="login"n id="login" [(ngModel)]="login" (keyup)="checkLoginUserSearch()" required>
+            <input #Dlogin class="form-control" type="text" name="login" id="login" [(ngModel)]="login" (keyup)="checkLoginUserSearch()" (blur)="checkLoginUserSearch()" required>
             <div [ngSwitch]="statusAlertUserLogin">
               <small *ngSwitchCase="1" class="form-text text-danger">El nombre de usuario debe contener minimo 6 caracteres</small>
               <small *ngSwitchCase="2" class="form-text text-danger">Usuario en uso !Intenete con otro Nombre de Usuario</small>
@@ -20,7 +20,11 @@
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input #Demail class="form-control" type="email" name="email" id="email" [(ngModel)]="email" required>
+            <input #Demail class="form-control" type="email" name="email" id="email" [(ngModel)]="email" (keyup)="checkEmailUserSearch()" (blur)="checkEmailUserSearch()" required>
+            <div [ngSwitch]="statusAlertUserEmail">
+              <small *ngSwitchCase="1" class="form-text text-danger">El correo Electronico es invalido</small>
+              <small *ngSwitchCase="2" class="form-text text-danger">Email en uso !Intenete con otro Email</small>
+            </div>
           </div>
           <div class="form-group">
             <label for="password">Contraseña:</label>
@@ -34,6 +38,9 @@
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" (click)="registerUser()">Registrarse</button>
+          </div>
+          <div #dataInvalid class="form-group d-none">
+            <small class="form-text text-danger">Campos Vacion o Datos Invalidos</small>
           </div>
         </form>
       </div>
