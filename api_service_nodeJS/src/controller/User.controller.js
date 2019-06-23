@@ -108,7 +108,7 @@ class User extends user{
             this.selectLoginUserCheck((err, rows, fields) => {
                 if(!err){
                     if(rows[0]){
-                        res.json({
+                        res.status(200).json({
                             msj: true
                         });
                     }else{
@@ -123,6 +123,31 @@ class User extends user{
                 }
             });
         }
+    }
+    cCheckEmailUser(data, res){
+        this.setUserdatas(data);
+
+        if(this.email){
+            this.selectEmailUserCheck((err, rows, fields) => {
+                if(!err){
+                    if(rows[0]){
+                        res.status(200).json({
+                            msj: true
+                        });
+                    }else{
+                        res.status(400).json({
+                            msj: false
+                        });
+                    }
+
+                }else{
+                    res.status(400).json({
+                        err: "missing data"
+                    });
+                }
+            });
+        }
+
     }
 
 }

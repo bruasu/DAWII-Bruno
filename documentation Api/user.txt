@@ -122,6 +122,33 @@ path: /api/user
                 {
                 "msj": "true"
                 }
+                commentary: return true with exists
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -not exists
+                    {
+                      msj: "false"
+                    }
+
+* -------------------------------------------- *
+
+path: /api/user
+    description: 
+        - check login Email exists
+    method: GET
+        send:
+            params Url
+           -> /email/bruasu@gmail.com
+            description -> typeSearch / value shearch       
+        response:
+            - success:->status = 200
+                {
+                "msj": "true"
+                }
+                commentary: return true with exists
             - errors: ->status = 400
                 -errors in mysql
                     {

@@ -38,6 +38,12 @@ class user extends User{
             fun(err, rows, fields);
         });
     }
+    selectEmailUserCheck(fun){
+        let query = "select * from users where email = ? limit 1";
+        this.mysqlConnection.query(query, [this.email], (err, rows, fields) => {
+            fun(err, rows, fields);
+        });
+    }
 
 }
 
