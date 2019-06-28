@@ -1,1 +1,61 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+.bgBrunoAdmin1{
+    background: #1E9AE0;
+}
+.bgBrunoAdmin2{
+    background: #D4E8CC;
+}
+.bgBrunoAdmin3{
+    background: #FFF8ED;
+}
+.bgBrunoAdmin4{
+    background: #E8CCDD;
+}
+.bgBrunoAdmin5{
+    background: #9EBEFF;
+}
+.colorBrunoAdmin1{
+    color: #1E9AE0;
+}
+.colorBrunoAdmin2{
+    color: #D4E8CC;
+}
+.colorBrunoAdmin3{
+    color: #FFF8ED;
+}
+.colorBrunoAdmin4{
+    color: #E8CCDD;
+}
+.colorBrunoAdmin5{
+    color: #9EBEFF;
+}
+.bgBruno1{
+    background: #01E076;
+}
+.bgBruno2{
+    background: #E3E8CC;
+}
+.bgBruno3{
+    background: #FFF8ED;
+}
+.bgBruno4{
+    background: #E8CECC;
+}
+.bgBruno5{
+    background: #CF9EFF;
+}
+.colorBruno1{
+    color: #01E076;
+}
+.colorBruno2{
+    color: #E3E8CC;
+}
+.colorBruno3{
+    color: #FFF8ED;
+}
+.colorBruno4{
+    color: #E8CECC;
+}
+.colorBruno5{
+    color: #CF9EFF;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -38,7 +39,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private Suser: UserService,
-    private render: Renderer2
+    private render: Renderer2,
+    private router: Router
   ) { 
   }
   
@@ -60,6 +62,9 @@ export class RegisterComponent implements OnInit {
       }
       
       this.Suser.registerUser(date).subscribe((res)=>{
+        if(res.insertUser){
+          this.router.navigate(['/login']);
+        }
         console.log(res);
       },(err)=>{
         console.log(err);
@@ -223,5 +228,8 @@ export class RegisterComponent implements OnInit {
       
     }
   }
+  }
+  loginUserRouter(){
+    this.router.navigate(['/login']);
   }
 }

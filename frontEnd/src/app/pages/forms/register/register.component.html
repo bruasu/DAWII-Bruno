@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="card mt-5">
+  <div class="row justify-content-center height100">
+    <div class="card m-auto">
       <div class="card-body">
         <form action="" class="m-3">
           <div class="form-gruop">
@@ -40,7 +40,10 @@
             <button type="submit" class="btn btn-primary btn-block" (click)="registerUser()">Registrarse</button>
           </div>
           <div #dataInvalid class="form-group d-none">
-            <small class="form-text text-danger">Campos Vacion o Datos Invalidos</small>
+            <small class="form-text text-danger">Campos Vacio o Datos Invalidos</small>
+          </div>
+          <div class="form-group mt-3 d-flex justify-content-end">
+            <a class="point " (click)="loginUserRouter()">Iniciar Sessión</a>
           </div>
         </form>
       </div>
