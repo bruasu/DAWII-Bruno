@@ -160,3 +160,40 @@ path: /api/user
                     }
 
 * -------------------------------------------- *
+
+path: /api/user
+    description: 
+        - list user
+    method: GET
+        send:
+            params Url
+           -> /list/bruasu/2
+            description -> typeSearch / user / count -> array count     
+        response:
+            - success:->status = 200
+                [
+                  {
+                    "id_user": 1,
+                    "name": "Bruno",
+                    "login": "bruasu",
+                    "password": "123456",
+                    "email": "bruasu@gmail.com",
+                    "type_user": "admin"
+                  },
+                  {
+                    "id_user": 2,
+                    "name": "Bruno",
+                    "login": "bruno1",
+                    "password": "123456",
+                    "email": "bruno@gmail.com",
+                    "type_user": "user"
+                  }
+                ]
+                commentary: return true with exists
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+
+* -------------------------------------------- *

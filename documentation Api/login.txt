@@ -25,6 +25,7 @@ path: /api/login
 observation:
     -typeUser:
         -admin
+        -gerent
         -user
 
 * -------------------------------------------- *

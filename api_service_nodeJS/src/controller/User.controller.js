@@ -149,7 +149,25 @@ class User extends user{
         }
 
     }
+    cSelectUser(data, res){
+        this.setUserdatas(data);
 
+        if(this.login){
+            this.selectLoginUserCheck((err, rows, fields)=>{
+                if(rows[0].type_user == 'admin' || rows[0].type_user == 'gerent'){
+                    if(this.countSelect == null || this.countSelect == 0 || this.countSelect < 0){
+                        this.countSelect = 10;
+                    }
+                    if(this.countSelect > 0){
+                        this.selectUserListCount((err, rows, fields) => {
+                            console.log(err);
+                            res.json(rows);
+                        });
+                    }
+                }
+            });
+        }
+    }
 }
 
 module.exports = User;

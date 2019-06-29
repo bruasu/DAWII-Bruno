@@ -7,6 +7,9 @@ class User{
         this.repassword;
         this.email;
         this.type_user;
+
+
+        this.countSelect;
         
     }
     setUserdatas(data){
@@ -30,6 +33,9 @@ class User{
         }
         if(data.type_user){
             this.type_user = data.type_user;
+        }
+        if(data.countSelect){
+            this.countSelect = data.countSelect;
         }
     }
 }

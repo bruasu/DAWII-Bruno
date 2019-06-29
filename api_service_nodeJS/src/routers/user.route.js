@@ -27,7 +27,7 @@ router.put('/', (req, res) => {
 
 });
 
-router.get('/:typeSearch/:search', (req, res) => {
+router.get('/:typeSearch/:search', (req, res) => {    
     let typeSearch = req.params.typeSearch;
     let user = new User();    
     
@@ -49,6 +49,22 @@ router.get('/:typeSearch/:search', (req, res) => {
         user.cCheckEmailUser(data, res);
     }
 
+});
+router.get('/:typeSearch/:user/:count', (req, res) => {
+    let typeSearch = req.params.typeSearch;
+    let userRequest = req.params.user;
+    let count = parseInt(req.params.count);
+    let user = new User();    
+    
+    if(typeSearch == 'list'){
+        
+        let data = {
+            login: userRequest,
+            countSelect: count
+        }
+
+        user.cSelectUser(data, res);
+    }
 });
 
 module.exports = router;
