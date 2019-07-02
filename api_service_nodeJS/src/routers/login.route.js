@@ -17,7 +17,11 @@ router.post('/', (req, res) =>{
             if(rows.length){
                 let response = {
                     authentication: true,
-                    typeUser: rows[0].type_user
+                    typeUser: rows[0].type_user,
+                    id_user: rows[0].id_user,
+                    email: rows[0].email,
+                    name: rows[0].name,
+                    login: rows[0].login
                 }
                 res.json(response);
             }else{

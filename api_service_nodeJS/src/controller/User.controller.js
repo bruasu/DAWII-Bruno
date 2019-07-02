@@ -160,8 +160,11 @@ class User extends user{
                     }
                     if(this.countSelect > 0){
                         this.selectUserListCount((err, rows, fields) => {
-                            console.log(err);
-                            res.json(rows);
+                            if("err"){
+                                res.json(rows);
+                            }else{
+                                res.json({'msj': err});
+                            }
                         });
                     }
                 }

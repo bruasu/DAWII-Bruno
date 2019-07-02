@@ -25,9 +25,14 @@ export class LoginComponent implements OnInit {
   onSubmitLogin(){
   
     this.Slogin.login(this.login, this.password).subscribe((response) => {
-      console.log(response);
+      //console.log(response);
 
       if(response.authentication){
+        sessionStorage.setItem('id_user', response.id_user);
+        sessionStorage.setItem('name', response.name);
+        sessionStorage.setItem('login', response.login);
+        sessionStorage.setItem('email', response.email);
+
         if(response.typeUser == 'user'){
           this.router.navigate(['/']);
         }else if(response.typeUser == 'admin'){         

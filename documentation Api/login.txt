@@ -10,8 +10,12 @@ path: /api/login
         response:
             - success: ->status = 200
                 {
-                    "authentication": true,
-                    "typeUser": "admin"
+                  "authentication": true,
+                  "typeUser": "admin",
+                  "id_user": 1,
+                  "email": "bruasu@gmail.com",
+                  "name": "Bruno",
+                  "login": "bruasu"
                 }
             - errors: ->status = 400
                 -errors in mysql

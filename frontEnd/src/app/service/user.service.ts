@@ -20,4 +20,7 @@ export class UserService {
   checkEmailUser(email: string): Observable<any>{
     return this._http.get("/api/user/email/"+email);
   }
+  selectUserAllCount(user: string, count: number): Observable<any>{
+    return this._http.get(`/api/user/list/${user}/${count}`);
+  }
 }

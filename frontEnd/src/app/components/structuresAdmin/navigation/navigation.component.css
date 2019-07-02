@@ -1,17 +1,8 @@
-.container-navigation{
-    width: 230px;
-    height: 100%;
-    margin-top: -3.5rem;
-}
 .nav-link{
     color: black;
     padding-left: 15px;
 }
 li>a:hover{
-    background: #E8CCDD;
+    background: rgb(111, 159, 233);
     color: black;
-}
-.navbar-nav{
-    padding-top: 3.5rem;
-
 }
