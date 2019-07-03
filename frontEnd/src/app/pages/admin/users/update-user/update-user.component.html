@@ -1,3 +1,43 @@
-<p>
-  update-user works!
-</p>
+<div class="card">
+  <div class="card-header">
+    <h3 class="text-center">Editar al Usuario</h3>    
+  </div>
+  <div class="card-body">
+    <form action="">
+      <div class="form-group">
+        <label for="">ID:</label>
+        <input class="form-control" type="text" value="{{user.id_user}}" readonly="readonly">
+      </div>
+      <div class="form-group">
+        <label for="">Nombre:</label>
+        <input #Dname class="form-control" name="name" id="name" type="text" [(ngModel)]="name" (keyup)="checkName()" (blur)="checkName()" required>
+        <small class="rigthSmall">Nombre Actual: <small class="text-danger point" (click)="nameCurrent()">{{user.name}}</small></small>
+      </div>
+      <div class="form-group">
+        <label for="">Usuario:</label>
+        <div [ngSwitch]="statusAlertUserLogin">
+          <small *ngSwitchCase="1" class="form-text text-danger">El nombre de usuario debe contener minimo 6 caracteres</small>
+          <small *ngSwitchCase="2" class="form-text text-danger">Usuario en uso !Intenete con otro Nombre de Usuario</small>
+        </div>
+        <input #Dlogin class="form-control"  name="login" id="login" type="text" [(ngModel)]="login" (keyup)="checkLoginUser()" (blur)="checkLoginUser()" required>
+        <small class="rigthSmall">Usuario Actual: <small class="text-danger point" (click)="loginCurrent()">{{user.login}}</small></small>
+      </div>
+      <div class="form-group">
+        <label for="">Email:</label>
+        <div [ngSwitch]="statusAlertUserEmail">
+            <small *ngSwitchCase="1" class="form-text text-danger">El correo Electronico es invalido</small>
+            <small *ngSwitchCase="2" class="form-text text-danger">Email en uso !Intenete con otro Email</small>
+          </div>
+        <input #Demail class="form-control" name="email" id="email" type="email" [(ngModel)]="email" (keyup)="checkEmailUserSearch()" (blur)="checkEmailUserSearch()" required>
+        <small class="rigthSmall">Email Actual: <small class="text-danger point" (click)="emailCurrent()">{{user.email}}</small></small>
+      </div>
+      <div class="form-group">
+        <label for="">Tipo de Usuario:</label>
+        <input class="form-control" type="text" value="{{user.type_user}}" readonly="readonly">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+      </div>
+    </form>
+  </div>
+</div>

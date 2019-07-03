@@ -45,7 +45,7 @@ class user extends User{
         });
     }
     selectUserListCount(fun){
-        let query = "select * from users limit ?";
+        let query = "select id_user, name, login, email, type_user from users limit ?";
         this.mysqlConnection.query(query,[this.countSelect], (err, rows, fields) =>{
             fun(err, rows, fields);
         });

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/service/user.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -9,20 +8,22 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ListUserComponent implements OnInit {
 
-  users: any;
-  user: object;
+
+  @Input() users:any;
+  @Output() user:EventEmitter<any>= new EventEmitter();
 
   constructor(
-    private Suser: UserService
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
-    this.Suser.selectUserAllCount(sessionStorage.getItem('login'), 10).subscribe((response)=>{
-      this.users = response;
-    });
+
   }
-  editUser(user){
-    this.user=user;
+
+  editUser(user): void{
+    this.user.emit(user);
   }
+
 
 }

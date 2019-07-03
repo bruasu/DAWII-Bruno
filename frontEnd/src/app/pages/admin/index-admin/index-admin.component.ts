@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexAdminComponent implements OnInit {
 
+  mainView: string = 'home';
+
   constructor() { }
 
   ngOnInit() {
   }
-
+  navigationCheckValueNav(e){
+    this.mainView = e;
+  }
 }

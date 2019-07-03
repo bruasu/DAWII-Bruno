@@ -6,3 +6,6 @@ li>a:hover{
     background: rgb(111, 159, 233);
     color: black;
 }
+.point{
+    cursor: pointer;
+}

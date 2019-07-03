@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <app-list-user [users]="users" (user)="responseUser($event)"></app-list-user>
+        </div>
+        <div class="col-6" *ngIf="user">
+            <app-update-user [user]="user"></app-update-user>
+        </div>
+    </div>
+</div>

@@ -4,16 +4,10 @@
     </header>
     <div id="container-nav-main">
         <nav id="nav" class="bgBrunoAdmin5">
-            <app-navigation></app-navigation>
+            <app-navigation (requestValueNav)="navigationCheckValueNav($event)"></app-navigation>
         </nav>
         <main id="main">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <app-list-user></app-list-user>
-                    </div>
-                </div>
-            </div>
+                <app-index-user-admin *ngIf="mainView == 'users'"></app-index-user-admin>
         </main>
     </div>
 </div>

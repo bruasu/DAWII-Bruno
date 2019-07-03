@@ -6,6 +6,8 @@ import { NavigationComponent } from 'src/app/components/structuresAdmin/navigati
 import { FooterComponent } from 'src/app/components/structuresAdmin/footer/footer.component';
 import { ListUserComponent } from './users/list-user/list-user.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
+import { IndexUserAdminComponent } from './users/index-user-admin/index-user-admin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,10 +16,12 @@ import { UpdateUserComponent } from './users/update-user/update-user.component';
     NavigationComponent,
     FooterComponent,
     ListUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    IndexUserAdminComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
