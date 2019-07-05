@@ -1,10 +1,14 @@
+<app-nav-admin-users (navUsersValueClick)="navEventClick($event)"></app-nav-admin-users>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" *ngIf="navView == 'listUsers'">
             <app-list-user [users]="users" (user)="responseUser($event)"></app-list-user>
         </div>
-        <div class="col-6" *ngIf="user">
-            <app-update-user [user]="user"></app-update-user>
+        <div class="col-lg-6" *ngIf="navView == 'user'">
+            <app-update-user [user]="user" (registerOK)="navEventClick($event)"></app-update-user>
+        </div>
+        <div class="col-12" *ngIf="navView == 'searchUser'">
+            <app-search-user></app-search-user>
         </div>
     </div>
 </div>

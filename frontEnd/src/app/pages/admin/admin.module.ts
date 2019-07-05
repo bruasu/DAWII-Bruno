@@ -8,6 +8,8 @@ import { ListUserComponent } from './users/list-user/list-user.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { IndexUserAdminComponent } from './users/index-user-admin/index-user-admin.component';
 import { FormsModule } from '@angular/forms';
+import { NavComponent } from './users/nav/nav.component';
+import { SearchUserComponent } from './users/search-user/search-user.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ListUserComponent,
     UpdateUserComponent,
-    IndexUserAdminComponent
+    IndexUserAdminComponent,
+    NavComponent,
+    SearchUserComponent
   ],
   imports: [
     CommonModule,

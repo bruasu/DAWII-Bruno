@@ -10,21 +10,32 @@ export class IndexUserAdminComponent implements OnInit {
 
   users: any;
   user: any;
+  navView: string = 'listUsers';
 
   constructor(
     private Suser: UserService
   ) { 
-    this.Suser.selectUserAllCount(sessionStorage.getItem('login'), 10).subscribe((response)=>{
-      this.users = response;
-    });
+    this.updateDataListUser();
   }
-
 
   ngOnInit() {
   }
 
   responseUser(user){
     this.user = user;
+    this.navView = 'user';
+  }
+  navEventClick(e){
+    console.log(e);
+    this.navView = e;
+    if(e == 'listUsers'){
+      this.updateDataListUser();
+    }
+  }
+  updateDataListUser(){
+    this.Suser.selectUserAllCount(sessionStorage.getItem('login'), 10).subscribe((response)=>{
+      this.users = response;
+    });
   }
 
 }

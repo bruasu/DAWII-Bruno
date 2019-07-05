@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Renderer2, ViewChild, Output, EventEmitter } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class UpdateUserComponent implements OnInit {
   name: string;
   login: string;
   email:string;
+
+  @Output() registerOK:EventEmitter<any> = new EventEmitter();
 
   @ViewChild("Dname") Dname;
   @ViewChild("Dlogin") Dlogin;
@@ -70,9 +72,15 @@ export class UpdateUserComponent implements OnInit {
           }
         }, 1000);
       }else{
+        this.verificationLogin = true;
         this.render.removeClass(this.Dlogin.nativeElement, 'is-invalid');
         this.render.addClass(this.Dlogin.nativeElement, 'is-valid');        
       }
+      }else{
+        this.verificationLogin = false;
+        this.statusAlertUserLogin = 0
+        this.render.removeClass(this.Dlogin.nativeElement, 'is-valid');
+        this.render.addClass(this.Dlogin.nativeElement, 'is-invalid');
       }
     //verific requeriments
     if(this.login.length > 5){
@@ -84,7 +92,7 @@ export class UpdateUserComponent implements OnInit {
         this.verificationLogin = false;
         this.statusAlertUserLogin = 0
         this.render.removeClass(this.Dlogin.nativeElement, 'is-valid');
-        this.render.removeClass(this.Dlogin.nativeElement, 'is-invalid');
+        this.render.addClass(this.Dlogin.nativeElement, 'is-invalid');
       }
     }
   }    
@@ -171,5 +179,23 @@ export class UpdateUserComponent implements OnInit {
   emailCurrent(){
     this.email = this.user.email;
     this.checkEmailUserSearch();
+  }
+  updateUserDataBase(){
+    if(this.verificationEmail && this.verificationLogin && this.verificationName){
+      let data ={
+        "id_user": this.user.id_user,
+        "name": this.name,
+        "login": this.login,
+        "email": this.email,
+        "update": "user"
+      }
+      this.Suser.updateUser(data).subscribe((response)=>{
+        if(response.msj=="modification success"){
+          this.registerOK.emit('listUsers');
+        }
+      },(err) =>{
+        console.log(err, 'error');
+      })
+    }
   }
 }

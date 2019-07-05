@@ -23,4 +23,7 @@ export class UserService {
   selectUserAllCount(user: string, count: number): Observable<any>{
     return this._http.get(`/api/user/list/${user}/${count}`);
   }
+  updateUser(date: object): Observable<any>{
+    return this._http.put('/api/user', date);
+  }
 }
