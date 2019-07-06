@@ -37,5 +37,23 @@ export class IndexUserAdminComponent implements OnInit {
       this.users = response;
     });
   }
+  deleteUser(e){
+    this.user = e;
+    this.navView = "deleteUser";
+  }
+  deleteUserResponse(res: string){
+    if(res == "YES"){
+      this.Suser.deleteUser(parseInt(this.user.id_user)).subscribe((response)=> {
+        console.log(response);
+        if(response.msj){
+          this.navEventClick("listUsers");
+        }   
+      },(err) => {
+        console.log(err);
+      });    
+    }else if(res == "NO"){
+      this.navView ="listUsers";
+    }
+  }
 
 }

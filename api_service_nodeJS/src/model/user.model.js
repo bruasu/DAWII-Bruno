@@ -50,6 +50,19 @@ class user extends User{
             fun(err, rows, fields);
         });
     }
+    selectUserNameEmailLogin(fun){       
+        let search = "%"+this.searchNameEmailLogin+"%";
+        let query = "select * from users where name like ? or email like ? or login like ?";
+        this.mysqlConnection.query(query,[search, search, search],(err, rows, fields)=> {
+            fun(err, rows, fields);
+        });
+    }
+    deleteUser(fun){
+        let query = "delete from users where id_user = ?";
+        this.mysqlConnection.query(query, [this.id_user], (err, rows, fields) => {
+            fun(err, rows, fields);
+        });
+    }
 
 }
 

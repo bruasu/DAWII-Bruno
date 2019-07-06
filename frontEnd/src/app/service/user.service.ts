@@ -26,4 +26,10 @@ export class UserService {
   updateUser(date: object): Observable<any>{
     return this._http.put('/api/user', date);
   }
+  searchUserNameEmailLogin(search: string): Observable<any>{
+    return this._http.get('/api/user/NameEmailLogin/'+search);
+  }
+  deleteUser(idUser: number): Observable<any>{
+    return this._http.delete('/api/user/'+idUser);
+  }
 }

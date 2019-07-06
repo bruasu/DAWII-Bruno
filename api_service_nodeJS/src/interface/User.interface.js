@@ -10,6 +10,7 @@ class User{
 
 
         this.countSelect;
+        this.searchNameEmailLogin;
         
     }
     setUserdatas(data){
@@ -36,6 +37,9 @@ class User{
         }
         if(data.countSelect){
             this.countSelect = data.countSelect;
+        }
+        if(data.searchNameEmailLogin){
+            this.searchNameEmailLogin = data.searchNameEmailLogin;
         }
     }
 }

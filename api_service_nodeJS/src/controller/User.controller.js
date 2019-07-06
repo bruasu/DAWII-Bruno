@@ -171,6 +171,38 @@ class User extends user{
             });
         }
     }
+    cSearchUserNameEmailLogin(data, res){
+        this.setUserdatas(data);
+        if(this.searchNameEmailLogin){
+            this.selectUserNameEmailLogin((err, rows, fields) => {
+                if(!err){
+                    res.json(rows);
+                }else{
+                    res.json({
+                        msj: err
+                    });
+                }
+            });
+        }
+    }
+    cDeleteUser(data, res){
+        this.setUserdatas(data);
+        if(this.id_user){
+            this.deleteUser((err, rows, fields) => {
+                if(!err){
+                    if(rows){
+                        res.json({
+                            "msj": true
+                        });
+                    }
+                }else{
+                    res.json({
+                        msj: err
+                    })
+                }
+            });
+        }
+    }
 }
 
 module.exports = User;

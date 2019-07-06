@@ -2,13 +2,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12" *ngIf="navView == 'listUsers'">
-            <app-list-user [users]="users" (user)="responseUser($event)"></app-list-user>
+            <app-list-user [users]="users" (user)="responseUser($event)" (deleteUserEvent)="deleteUser($event)"></app-list-user>
         </div>
         <div class="col-lg-6" *ngIf="navView == 'user'">
             <app-update-user [user]="user" (registerOK)="navEventClick($event)"></app-update-user>
         </div>
         <div class="col-12" *ngIf="navView == 'searchUser'">
-            <app-search-user></app-search-user>
+            <app-search-user (user)="responseUser($event)" ></app-search-user>
+        </div>
+        <div class="col-12" *ngIf="navView == 'deleteUser'">
+            <app-alert-delete-User [userName]="user" (responseDeliteUser)="deleteUserResponse($event)"></app-alert-delete-User>
         </div>
     </div>
 </div>

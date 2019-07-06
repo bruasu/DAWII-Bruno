@@ -13,11 +13,8 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit() {
   }
-  clickHome(){
-    this.requestValueNav.emit('home');
-  }
-  clickUsers(){
-    this.requestValueNav.emit('users');
+  clickEvent(event: string){
+    this.requestValueNav.emit(event);
   }
 
 }

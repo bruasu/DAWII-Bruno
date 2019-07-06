@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-search-user',
@@ -8,13 +9,28 @@ import { Component, OnInit } from '@angular/core';
 export class SearchUserComponent implements OnInit {
 
   valueSearch: string;
+  usersSearch: object;
 
-  constructor() { }
+  @Output() user:EventEmitter<any>= new EventEmitter();
+
+  constructor(
+   private Suser: UserService
+  ) { }
 
   ngOnInit() {
   }
   requestSearch(){
-    console.log(this.valueSearch);
+    this.Suser.searchUserNameEmailLogin(this.valueSearch).subscribe((response) =>{
+
+      if(response){
+        this.usersSearch = response;
+      }
+    },(err) => {
+      console.log(err);
+    });
+  }
+  editUser(user): void{
+    this.user.emit(user);
   }
 
 }

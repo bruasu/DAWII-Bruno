@@ -48,6 +48,14 @@ router.get('/:typeSearch/:search', (req, res) => {
         }
         user.cCheckEmailUser(data, res);
     }
+    else if(typeSearch == 'NameEmailLogin'){
+        let search = req.params.search;
+
+        let data = {
+            "searchNameEmailLogin": search
+        }
+        user.cSearchUserNameEmailLogin(data, res);
+    }
 
 });
 router.get('/:typeSearch/:user/:count', (req, res) => {
@@ -65,6 +73,16 @@ router.get('/:typeSearch/:user/:count', (req, res) => {
 
         user.cSelectUser(data, res);
     }
+});
+router.delete('/:idUser',(req, res) => {
+    let idUser = req.params.idUser;
+    let user = new User();
+
+    let data ={
+        "id_user": idUser
+    }
+
+    user.cDeleteUser(data, res);
 });
 
 module.exports = router;

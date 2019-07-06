@@ -189,7 +189,62 @@ path: /api/user
                     "type_user": "user"
                   }
                 ]
-                commentary: return true with exists
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+
+* -------------------------------------------- *
+
+path: /api/user
+    description: 
+        - Search User for Name, Email, Login
+    method: GET
+        send:
+            params Url
+           -> /NameEmailLogin/br
+            description -> NameEmailLogin  / search
+        response:
+            - success:->status = 200
+		[
+		  {
+		    "id_user": 1,
+		    "name": "Bruno Asuncion",
+		    "login": "bruasu",
+		    "password": "123456",
+		    "email": "bruasu@gmail.com",
+		    "type_user": "admin"
+		  },
+		  {
+		    "id_user": 2,
+		    "name": "Bruno",
+		    "login": "bruno4",
+		    "password": "123456",
+		    "email": "bruno@gmail.com",
+		    "type_user": "user"
+		  }
+		]
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+
+* -------------------------------------------- *
+path: /api/user
+    description: 
+        - delete user
+    method: DELETE
+        send:
+            params Url
+           -> /3
+            description -> id User
+        response:
+            - success:->status = 200
+		  {
+		    "msj":  true
+		  }
             - errors: ->status = 400
                 -errors in mysql
                     {

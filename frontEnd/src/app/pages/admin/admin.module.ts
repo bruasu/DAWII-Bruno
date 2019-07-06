@@ -10,6 +10,12 @@ import { IndexUserAdminComponent } from './users/index-user-admin/index-user-adm
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from './users/nav/nav.component';
 import { SearchUserComponent } from './users/search-user/search-user.component';
+import { AlertComponent } from './users/alert/alert.component';
+import { IndexProductsAdminComponent } from './products/index-products-admin/index-products-admin.component';
+import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { NavProductsComponent } from './products/nav-products/nav-products.component';
+import { IndexCategoryAdminComponent } from './category/index-category-admin/index-category-admin.component';
+import { NavCategoryComponent } from './category/nav-category/nav-category.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,13 @@ import { SearchUserComponent } from './users/search-user/search-user.component';
     UpdateUserComponent,
     IndexUserAdminComponent,
     NavComponent,
-    SearchUserComponent
+    SearchUserComponent,
+    AlertComponent,
+    IndexProductsAdminComponent,
+    UpdateProductComponent,
+    NavProductsComponent,
+    IndexCategoryAdminComponent,
+    NavCategoryComponent
   ],
   imports: [
     CommonModule,

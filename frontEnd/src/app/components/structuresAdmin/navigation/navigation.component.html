@@ -1,8 +1,11 @@
 <ul class="navbar-nav">
-  <li class="nav-item" (click)="clickHome()">
+  <li class="nav-item" (click)="clickEvent('home')">
     <a class="nav-link point" >Home</a>
   </li>
-  <li class="nav-item" (click)="clickUsers()">
+  <li class="nav-item" (click)="clickEvent('users')">
     <a class="nav-link point" >Usuarios</a>
+  </li>
+  <li class="nav-item" (click)="clickEvent('products')">
+    <a class="nav-link point">Productos</a>
   </li>
 </ul>
