@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexCategoryAdminComponent implements OnInit {
 
+  navView: string = 'listCategory';
+  category: any;
+  
   constructor() { }
 
   ngOnInit() {
   }
-
+  eventClickNav(e){
+    this.navView = e;
+  }
+  eventCategory(e){
+    this.category = e;
+  }
 }

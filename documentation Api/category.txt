@@ -1,0 +1,77 @@
+path: /api/category
+    description: 
+        - register category
+    method: POST
+        send:
+            {
+	            "name": "kaiak"
+            }
+        response:
+            - success: ->status = 200
+                {
+                "insertCategory": true,
+                "id_category": 6
+                }
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -value in white
+                    {
+                        err: "value in white"
+                    }
+
+* -------------------------------------------- *
+
+path: /api/category
+    description: 
+        - list categories
+    method: GET
+        send:
+            
+        response:
+            - success: ->status = 200
+                [
+                    {
+                        "id_category": 1,
+                        "name": "kaiak"
+                    },
+                    {
+                        "id_category": 2,
+                        "name": "kaiak2"
+                    },
+                    {
+                        "id_category": 3,
+                        "name": "kaiak2"
+                    }
+                    ]
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+
+* -------------------------------------------- *
+
+path: /api/category
+    description: 
+        - update category
+    method: PUT
+        send:
+            {
+                "id_category": 1,
+                "name": "Bruno test 1"
+            }            
+        response:
+            - success: ->status = 200
+                {
+                    msj: true
+                }
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+
+* -------------------------------------------- *

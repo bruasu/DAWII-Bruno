@@ -16,6 +16,9 @@ import { UpdateProductComponent } from './products/update-product/update-product
 import { NavProductsComponent } from './products/nav-products/nav-products.component';
 import { IndexCategoryAdminComponent } from './category/index-category-admin/index-category-admin.component';
 import { NavCategoryComponent } from './category/nav-category/nav-category.component';
+import { InsertCategoryComponent } from './category/insert-category/insert-category.component';
+import { ListCategoryComponent } from './category/list-category/list-category.component';
+import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { NavCategoryComponent } from './category/nav-category/nav-category.compo
     UpdateProductComponent,
     NavProductsComponent,
     IndexCategoryAdminComponent,
-    NavCategoryComponent
+    NavCategoryComponent,
+    InsertCategoryComponent,
+    ListCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,

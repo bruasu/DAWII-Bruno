@@ -1,3 +1,14 @@
-<p>
-  index-category-admin works!
-</p>
+<app-nav-category (EventClickNav)="eventClickNav($event)"></app-nav-category>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12" *ngIf="navView == 'insertCategory'">
+      <app-insert-category (eventInsertCategory)="eventClickNav($event)"></app-insert-category>
+    </div>
+    <div class="col-12" *ngIf="navView == 'listCategory'">
+      <app-list-category-admin (eventEditCategory)="eventClickNav($event)" (eventSubmitCategory)="eventCategory($event)"></app-list-category-admin>
+    </div>
+    <div class="col-12" *ngIf="navView == 'editCategory'">
+      <app-edit-category-admin [category]="category" (eventClickUpdate)="eventClickNav($event)"></app-edit-category-admin>
+    </div>
+  </div>   
+</div>

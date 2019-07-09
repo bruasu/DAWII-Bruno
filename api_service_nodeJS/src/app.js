@@ -27,6 +27,7 @@ app.use('/api/login', require('./routers/login.route'));
 app.use('/api/home',require('./routers/home.route'));
 app.use('/api/user',require('./routers/user.route'));
 app.use('/api/product',require('./routers/product.route'));
+app.use('/api/category',require('./routers/category.route'));
 
 //starting the server
 

@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="text-center">Categorias</h2>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Editar</th>
+      </tr>
+      <tr *ngFor="let category of categories">
+        <td>{{category.id_category}}</td>
+        <td>{{category.name}}</td>
+        <td><button class="btn btn-primary" (click)="editCategory(category)">Editar</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
