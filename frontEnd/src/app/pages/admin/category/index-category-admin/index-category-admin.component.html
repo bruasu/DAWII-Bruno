@@ -10,5 +10,8 @@
     <div class="col-12" *ngIf="navView == 'editCategory'">
       <app-edit-category-admin [category]="category" (eventClickUpdate)="eventClickNav($event)"></app-edit-category-admin>
     </div>
+    <div class="col-12" *ngIf="navView == 'deleteCategory'">
+      <app-alert-delete-category [category]="category" (eventClickUpdate)="eventClickNav($event)"></app-alert-delete-category>
+    </div>
   </div>   
 </div>

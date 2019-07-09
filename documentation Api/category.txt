@@ -75,3 +75,23 @@ path: /api/category
                     }
 
 * -------------------------------------------- *
+
+path: /api/category
+    description: 
+        - update category
+    method: DELETE
+        send:
+            params Url:
+            example: api/category/10    -> id_category that want detete
+        response:
+            - success: ->status = 200
+                {
+                    msj: true
+                }
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+
+* -------------------------------------------- *

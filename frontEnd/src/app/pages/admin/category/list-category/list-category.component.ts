@@ -33,5 +33,10 @@ export class ListCategoryComponent implements OnInit {
     this.eventEditCategory.emit('editCategory');
     this.eventSubmitCategory.emit(category);
   }
+  deleteCategory(category){
+    this.category = category;
+    this.eventEditCategory.emit('deleteCategory');
+    this.eventSubmitCategory.emit(category);
+  }
 
 }

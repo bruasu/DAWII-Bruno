@@ -20,4 +20,7 @@ export class CategoryService {
   updateCategory(id_category: number, name: string): Observable<any>{
     return this._http.put('/api/category', {"id_category": id_category, "name": name});
   }
+  deleteCategory(id_category: number):Observable<any>{
+    return this._http.delete('/api/category/'+id_category);
+  }
 }

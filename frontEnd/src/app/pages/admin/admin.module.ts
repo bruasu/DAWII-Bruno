@@ -19,6 +19,8 @@ import { NavCategoryComponent } from './category/nav-category/nav-category.compo
 import { InsertCategoryComponent } from './category/insert-category/insert-category.component';
 import { ListCategoryComponent } from './category/list-category/list-category.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
+import { AlertDeleteCategoryComponent } from './category/alert-delete-category/alert-delete-category.component';
+import { InsertProductComponent } from './products/insert-product/insert-product.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
     NavCategoryComponent,
     InsertCategoryComponent,
     ListCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    AlertDeleteCategoryComponent,
+    InsertProductComponent
   ],
   imports: [
     CommonModule,

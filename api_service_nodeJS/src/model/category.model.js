@@ -26,6 +26,13 @@ class category extends Category{
             fun(err, rows, fields);
         });
     }
+    deleteCategory(fun){
+        let query = "delete from categories where id_category = ?";
+
+        this.mysqlConnection.query(query, [this.id_category], (err, rows, fields) =>{
+            fun(err, rows, fields);
+        });
+    }
 }
 
 module.exports = category;

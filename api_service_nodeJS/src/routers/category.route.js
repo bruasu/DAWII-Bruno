@@ -29,4 +29,14 @@ router.put('/', (req, res) => {
     category.cUpdateCategory(data, res);
 });
 
+router.delete('/:id_category', (req, res) => {
+    let id_category = req.params.id_category;
+    data ={
+        id_category: id_category
+    }
+
+    let category = new Category();
+    category.cDeleteCategory(data, res);
+});
+
 module.exports = router; 

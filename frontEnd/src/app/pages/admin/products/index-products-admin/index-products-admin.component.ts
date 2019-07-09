@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexProductsAdminComponent implements OnInit {
 
+  navView: string = 'listProducts';
+  product: any;
+
   constructor() { }
 
   ngOnInit() {

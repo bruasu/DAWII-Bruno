@@ -1,7 +1,10 @@
 <app-nav-products></app-nav-products>
 <div class="container-fluid">
 <div class="row">
-  <div class="col-12">
+  <div class="col-12" *ngIf="navView == 'listProducts'">
+    <app-insert-product></app-insert-product>
+  </div>
+  <div class="col-12" *ngIf="navView == 'updateProduct'">
     <app-update-product></app-update-product>
   </div>
 </div>

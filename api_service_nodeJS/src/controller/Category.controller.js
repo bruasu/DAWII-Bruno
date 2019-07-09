@@ -42,7 +42,7 @@ class Category extends category{
     cUpdateCategory(data, res){
         this.setCategoryDatas(data);
 
-        if(this.id_category){
+        if(this.id_category && this.name){
             this.updateCategory((err, rows, fields) => {
                 if(!err){
                     if(rows){
@@ -53,6 +53,25 @@ class Category extends category{
                 }else{
                     res.status(400).json({
                         msj: err
+                    });
+                }
+            });
+        }
+    }
+    cDeleteCategory(data, res){
+        this.setCategoryDatas(data);
+
+        if(this.id_category){
+            this.deleteCategory((err, rows, fields) => {
+                if(!err){
+                    if(rows.protocol41){
+                        res.json({
+                            msj: true
+                        });
+                    }
+                }else{
+                    res.status(400).json({
+                        err: err
                     });
                 }
             });
