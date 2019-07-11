@@ -12,43 +12,76 @@ export class LoginComponent implements OnInit {
 
   login: string;
   password: string;
+  reCapcha: string;
+  sha256: any;
+  checkCapchaAlert:boolean = true;
+  valuesEmpltyAlert: boolean = true;
+  UserIncorrectAlert: boolean = true;
 
   constructor(
     private Slogin: LoginService,
     private router: Router
-    ) { }
+    ) { 
+      if(sessionStorage.getItem('id_user')){
+        if(sessionStorage.getItem('typeUser') == 'user'){
+          this.router.navigate(['/']);
+        }
+        else if(sessionStorage.getItem('typeUser') == 'admin'){
+          this.router.navigate(['/admin']);
+        }
 
-  ngOnInit() {
-
+      }
+      this.sha256 = require('sha256');
+    }
+    
+    ngOnInit() {
   }
 
   onSubmitLogin(){
   
-    this.Slogin.login(this.login, this.password).subscribe((response) => {
-      //console.log(response);
+    if(this.reCapcha){
+      this.checkCapchaAlert = true;
+      if(this.login && this.password){
 
-      if(response.authentication){
-        sessionStorage.setItem('id_user', response.id_user);
-        sessionStorage.setItem('name', response.name);
-        sessionStorage.setItem('login', response.login);
-        sessionStorage.setItem('email', response.email);
-
-        if(response.typeUser == 'user'){
-          this.router.navigate(['/']);
-        }else if(response.typeUser == 'admin'){         
-          this.router.navigate(['/admin']);
-        }
+        this.Slogin.login(this.login, this.sha256(this.password)).subscribe((response) => {
+          //console.log(response);
+          
+          if(response.authentication){
+            sessionStorage.setItem('id_user', response.id_user);
+            sessionStorage.setItem('name', response.name);
+            sessionStorage.setItem('login', response.login);
+            sessionStorage.setItem('email', response.email);
+            sessionStorage.setItem('typeUser', response.typeUser);
+            
+            if(response.typeUser == 'user'){
+              this.router.navigate(['/']);
+            }else if(response.typeUser == 'admin'){         
+              this.router.navigate(['/admin']);
+            }
+          }
+          
+        }, (err) => {
+          if(err.status == 400){
+            if(!err.error.authentication){
+              this.valuesEmpltyAlert = true;
+              this.UserIncorrectAlert = false;
+            }
+          }
+        });
+      }else{
+        this.valuesEmpltyAlert = false;
       }
-      
-    }, (err) => {
-      if(err.status == 400){
-        console.log(err.error);
-        
-      }
-    });
+    }else{
+      this.checkCapchaAlert = false;
+    }
   }
   registerUser(){
     this.router.navigate(['/register']);
+  }
+  resolvedreCaptcha(e){
+    if(e){
+      this.reCapcha = e;
+    }
   }
 
 }

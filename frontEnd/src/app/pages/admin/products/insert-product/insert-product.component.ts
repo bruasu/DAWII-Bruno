@@ -17,7 +17,9 @@ export class InsertProductComponent implements OnInit {
 
   constructor(
     private Scategory: CategoryService
-  ) { }
+  ) { 
+
+  }
 
   ngOnInit() {
     this.Scategory.selectCategories().subscribe((response) => {

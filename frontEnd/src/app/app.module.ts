@@ -22,7 +22,7 @@ import { AdminModule } from './pages/admin/admin.module';
     FormModule,
     UsersModule,
     AdminModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
