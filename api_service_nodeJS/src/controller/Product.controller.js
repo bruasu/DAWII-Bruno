@@ -6,7 +6,6 @@ class Product extends product{
     }
     cInserProduct(data, res){
         this.setProductDatas(data);
-
         this.insertProduct((err, rows, fields) => {
             if(!err){
                 if(rows){

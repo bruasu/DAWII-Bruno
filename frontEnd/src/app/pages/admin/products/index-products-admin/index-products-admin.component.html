@@ -1,11 +1,14 @@
-<app-nav-products></app-nav-products>
+<app-nav-products (viewProduct)="viewProduct($event)"></app-nav-products>
 <div class="container-fluid">
 <div class="row">
-  <div class="col-12" *ngIf="navView == 'listProducts'">
-    <app-insert-product></app-insert-product>
+  <div class="col-12" *ngIf="navView == 'insertProducts'">
+    <app-insert-product (viewEventClick)="viewProduct($event)"></app-insert-product>
   </div>
   <div class="col-12" *ngIf="navView == 'updateProduct'">
     <app-update-product></app-update-product>
+  </div>
+  <div class="col-12" *ngIf="navView == 'listProducts'">
+    <app-list-products></app-list-products>
   </div>
 </div>
 </div>

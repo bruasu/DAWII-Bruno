@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
   password: string;
   repassword: string;
   type_user: string = "user";
-  sha256: any;
   
   @ViewChild("Dpassword") Dpassword;
   @ViewChild('Drepassword') Drepassword;
@@ -43,7 +42,6 @@ export class RegisterComponent implements OnInit {
     private render: Renderer2,
     private router: Router
   ) { 
-    this.sha256 = require('sha256');
   }
   
   ngOnInit() {
@@ -58,8 +56,8 @@ export class RegisterComponent implements OnInit {
         name: this.name,
         login: this.login,
         email: this.email,
-        password: this.sha256(this.password),
-        repassword: this.sha256(this.repassword),
+        password: this.password,
+        repassword: this.repassword,
         type_user: this.type_user
       }
       

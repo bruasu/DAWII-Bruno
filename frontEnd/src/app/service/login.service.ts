@@ -11,7 +11,7 @@ export class LoginService {
 
   login(login: string, password: string):Observable<any>{
     
-    return this._http.post("/api/login", {
+    return this._http.post("http://localhost:3000/api/login", {
       login: login,
       password: password
     });

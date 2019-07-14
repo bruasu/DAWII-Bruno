@@ -14,5 +14,8 @@ export class IndexProductsAdminComponent implements OnInit {
 
   ngOnInit() {
   }
+  viewProduct(e){
+    this.navView = e;
+  }
 
 }

@@ -8,7 +8,7 @@ class Product{
         this.offer_price;
         this.description;
         this.quantity;
-        this.image = new Array;
+        this.image;
         this.status;
 
         this.category_name;

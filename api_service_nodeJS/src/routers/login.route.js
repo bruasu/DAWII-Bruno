@@ -9,10 +9,11 @@ router.all('/', (req, res, next) => {
 });
 
 router.post('/', (req, res) =>{
+    let sha256 = require('sha256');
     
     const { login, password } = req.body;
 
-    mysqlConnection.query('select * from users where login = ? and password = ?',[login, password], (err, rows, fields) => {
+    mysqlConnection.query('select * from users where login = ? and password = ?',[login, sha256(password)], (err, rows, fields) => {
         if(!err){
             if(rows.length){
                 let response = {

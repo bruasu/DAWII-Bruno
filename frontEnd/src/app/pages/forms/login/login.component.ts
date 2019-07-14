@@ -13,10 +13,10 @@ export class LoginComponent implements OnInit {
   login: string;
   password: string;
   reCapcha: string;
-  sha256: any;
   checkCapchaAlert:boolean = true;
   valuesEmpltyAlert: boolean = true;
   UserIncorrectAlert: boolean = true;
+
 
   constructor(
     private Slogin: LoginService,
@@ -29,21 +29,19 @@ export class LoginComponent implements OnInit {
         else if(sessionStorage.getItem('typeUser') == 'admin'){
           this.router.navigate(['/admin']);
         }
-
       }
-      this.sha256 = require('sha256');
     }
     
     ngOnInit() {
-  }
+
+    }
 
   onSubmitLogin(){
   
     if(this.reCapcha){
       this.checkCapchaAlert = true;
       if(this.login && this.password){
-
-        this.Slogin.login(this.login, this.sha256(this.password)).subscribe((response) => {
+        this.Slogin.login(this.login, this.password).subscribe((response) => {
           //console.log(response);
           
           if(response.authentication){

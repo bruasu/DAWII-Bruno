@@ -21,6 +21,7 @@ import { ListCategoryComponent } from './category/list-category/list-category.co
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { AlertDeleteCategoryComponent } from './category/alert-delete-category/alert-delete-category.component';
 import { InsertProductComponent } from './products/insert-product/insert-product.component';
+import { ListProductsComponent } from './products/list-products/list-products.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { InsertProductComponent } from './products/insert-product/insert-product
     ListCategoryComponent,
     EditCategoryComponent,
     AlertDeleteCategoryComponent,
-    InsertProductComponent
+    InsertProductComponent,
+    ListProductsComponent
   ],
   imports: [
     CommonModule,

@@ -12,15 +12,15 @@ export class CategoryService {
   ) { }
   
   insertCategory(category: string): Observable<any>{
-    return this._http.post('/api/category', {"name": category});
+    return this._http.post('http://localhost:3000/api/category', {"name": category});
   }
   selectCategories(): Observable<any>{
-    return this._http.get('/api/category');
+    return this._http.get('http://localhost:3000/api/category');
   }
   updateCategory(id_category: number, name: string): Observable<any>{
-    return this._http.put('/api/category', {"id_category": id_category, "name": name});
+    return this._http.put('http://localhost:3000/api/category', {"id_category": id_category, "name": name});
   }
   deleteCategory(id_category: number):Observable<any>{
-    return this._http.delete('/api/category/'+id_category);
+    return this._http.delete('http://localhost:3000/api/category/'+id_category);
   }
 }

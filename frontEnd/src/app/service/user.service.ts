@@ -12,24 +12,24 @@ export class UserService {
   ) { }
 
   registerUser(date: object): Observable<any>{
-    return this._http.post("/api/user", date);
+    return this._http.post("http://localhost:3000/api/user", date);
   }
   checkLoginUser(login: string): Observable<any>{    
-    return this._http.get("/api/user/login/"+login);
+    return this._http.get("http://localhost:3000/api/user/login/"+login);
   }
   checkEmailUser(email: string): Observable<any>{
-    return this._http.get("/api/user/email/"+email);
+    return this._http.get("http://localhost:3000/api/user/email/"+email);
   }
   selectUserAllCount(user: string, count: number): Observable<any>{
-    return this._http.get(`/api/user/list/${user}/${count}`);
+    return this._http.get(`http://localhost:3000/api/user/list/${user}/${count}`);
   }
   updateUser(date: object): Observable<any>{
-    return this._http.put('/api/user', date);
+    return this._http.put('http://localhost:3000/api/user', date);
   }
   searchUserNameEmailLogin(search: string): Observable<any>{
-    return this._http.get('/api/user/NameEmailLogin/'+search);
+    return this._http.get('http://localhost:3000/api/user/NameEmailLogin/'+search);
   }
   deleteUser(idUser: number): Observable<any>{
-    return this._http.delete('/api/user/'+idUser);
+    return this._http.delete('http://localhost:3000/api/user/'+idUser);
   }
 }

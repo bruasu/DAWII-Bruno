@@ -3,10 +3,10 @@ path: /api/product
         - search product quantity
     method: GET
         send:
-            {
-                "search": "quantity",
-                "QueryQuantity": 10
-            }
+            params Url
+           -> /quantity/10
+            description -> typeSearch / quantity shearch       
+
         response:
             - success: ->status = 200
 

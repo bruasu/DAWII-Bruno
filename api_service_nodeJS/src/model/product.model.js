@@ -6,9 +6,9 @@ class product extends Product{
         this.mysqlConnection = require('../data/database');
     }
     insertProduct(fun){
-        let query = "INSERT INTO `products` (`id_category`, `name`, `sale_price`, `purchase_price`, `offer_price`, `description`, `quantity`, `status`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        let query = "INSERT INTO `products` (`id_category`, `name`, `sale_price`, `purchase_price`, `offer_price`, `description`, `image`, `quantity`, `status`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        this.mysqlConnection.query(query,[this.id_category, this.name, this.sale_price, this.purchase_price, this.offer_price, this.description, this.quantity, this.status], (err, rows, fields) => {
+        this.mysqlConnection.query(query,[this.id_category, this.name, this.sale_price, this.purchase_price, this.offer_price, this.description, this.image, this.quantity, this.status], (err, rows, fields) => {
             fun(err, rows, fields);
         });
     }
@@ -20,7 +20,7 @@ class product extends Product{
         });
     }
     selectProductQuantity(fun){
-        let query = "select * from products limit ?";
+        let query = "select products.*, categories.name as category_name from products inner join categories on categories.id_category = products.id_category limit ?";
 
         this.mysqlConnection.query(query,[this.QueryQuantity],(err, rows, fields) => {
             fun(err, rows, fields);

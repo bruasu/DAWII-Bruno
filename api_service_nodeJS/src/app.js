@@ -1,26 +1,33 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const multer = require('multer');
+const cors = require('cors');
+const uuid = require('uuid/v4');
+const path = require('path');
+
+//static file
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+//multer
+const storage = multer.diskStorage({
+    destination: path.join(__dirname,'public/img/'),
+    filename: (req, file, cb) => {
+        cb(null, uuid() + path.extname(file.originalname).toLocaleLowerCase());
+    }
+});
 
 app.set('port', process.env.PORT || 3000);
 
 //middlewares
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
-//CORS
-
-app.use((req, res, next) =>{
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-
-    if(req.method === 'OPTIONS'){
-        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-        return res.status(200).json({});
-    }
-    next();
-});
+app.use(multer({
+    storage: storage
+}).single('image'));
 
 //routes
 app.use('/api/login', require('./routers/login.route'));

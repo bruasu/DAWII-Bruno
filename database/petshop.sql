@@ -32,6 +32,7 @@ CREATE TABLE products(
     purchase_price float NULL,
     offer_price FLOAT NULL,
     description VARCHAR(250),
+    image VARCHAR(250),
     quantity int NULL,
     status varchar(50),    
     foreign key (id_category) references categories(id_category)

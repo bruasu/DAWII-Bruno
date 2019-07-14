@@ -11,6 +11,7 @@ class User{
 
         this.countSelect;
         this.searchNameEmailLogin;
+        this.sha256 = require('sha256');
         
     }
     setUserdatas(data){
@@ -24,10 +25,10 @@ class User{
             this.login = data.login;
         }
         if(data.password){
-            this.password = data.password;
+            this.password = this.sha256(data.password);
         }
         if(data.repassword){
-            this.repassword = data.repassword;
+            this.repassword = this.sha256(data.repassword);
         }
         if(data.email){
             this.email = data.email;

@@ -8,18 +8,26 @@ router.all('/', (req, res, next) => {
     next();
 });
 
-router.get('/', (req, res) => {
-    let product = new Product();
-    let search = req.body.search;
-
+router.get('/:search/:value', (req, res) => {
+    let product = new Product();    
+    let search = req.params.search;
+    
     if(search == 'quantity'){
-        product.cSelectProductQuantity(req.body, res);
+        let quantity = parseInt(req.params.value);
+        let data = {
+            QueryQuantity: quantity
+        }
+
+        product.cSelectProductQuantity(data, res);
     }
 });
 
 router.post('/', (req, res) => {
     let product = new Product();
-    product.cInserProduct(req.body, res);
+    let image = req.file;
+    let data = req.body;
+    data.image = '/img/'+image.filename;
+    product.cInserProduct(data, res);
 });
 
 router.put('/', (req, res) => {
