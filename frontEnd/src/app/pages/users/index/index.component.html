@@ -1,1 +1,5 @@
-<app-header></app-header>
+<app-header [quantityCar]="quantityCar"></app-header>
+<app-nav-category></app-nav-category>
+<div>
+    <app-container-products [products]="products" (quantityCar)="eventQuantityCar($event)"></app-container-products>
+</div>

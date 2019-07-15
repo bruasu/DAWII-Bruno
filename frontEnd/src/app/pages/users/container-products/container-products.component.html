@@ -1,0 +1,7 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4" *ngFor="let product of products">
+        <app-container-product-unique [product]="product" (quantityCar)="eventQuantityCar($event)"></app-container-product-unique>
+    </div>
+  </div>
+</div>

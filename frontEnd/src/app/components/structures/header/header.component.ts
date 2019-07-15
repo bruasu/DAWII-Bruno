@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,8 +10,11 @@ export class HeaderComponent implements OnInit {
 
   session:boolean;
   checkAdmin:boolean = true;
+  @Input() quantityCar: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+
+   }
 
   ngOnInit() {
     if(sessionStorage.getItem('id_user')){
@@ -23,6 +26,9 @@ export class HeaderComponent implements OnInit {
     if(sessionStorage.getItem('typeUser') == 'admin'){
       this.checkAdmin = false;
     }
+    
+    let cards = JSON.parse(sessionStorage.getItem('car'));
+    this.quantityCar = Object.keys(cards).length;
   }
 
   routerLogin(){

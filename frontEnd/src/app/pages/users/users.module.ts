@@ -3,22 +3,29 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from 'src/app/components/structures/header/header.component';
 import { IndexComponent } from './index/index.component';
 import { FooterComponent } from 'src/app/components/structures/footer/footer.component';
-import { NavigationComponent } from 'src/app/components/structures/navigation/navigation.component';
+import { NavCategoryComponent } from './nav-category/nav-category.component';
+import { ContainerProductsComponent } from './container-products/container-products.component';
+import { ContainerProductUniqueComponent } from './container-product-unique/container-product-unique.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    NavigationComponent,
     FooterComponent,
     HeaderComponent,
-    IndexComponent
+    IndexComponent,
+    NavCategoryComponent,
+    ContainerProductsComponent,
+    ContainerProductUniqueComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     IndexComponent
   ]
 })
-export class UsersModule { }
+export class UsersModule { 
+}

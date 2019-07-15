@@ -1,0 +1,12 @@
+<nav>
+  <ul class="nav nav-tabs mb-2 bgBruno5">
+      <li class="nav-item point">
+          <a class="nav-link" (click)="eventCategory({name:'allProducts'})">Todos</a>
+        </li>    
+    <div *ngFor="let category of categories">
+      <li class="nav-item point">
+        <a class="nav-link" (click)="eventCategory(category)">{{category.name}}</a>
+      </li>      
+    </div>
+  </ul> 
+</nav>

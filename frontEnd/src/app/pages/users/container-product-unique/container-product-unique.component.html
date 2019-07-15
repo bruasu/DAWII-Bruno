@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="text-center">{{product.name}}</h3>
+    </div>
+    <img src="http://localhost:3000/{{product.image}}" alt="" class="card-img-top">
+    <div class="card-boy">
+      <h6 class="text-center mt-2 mb-2">categoria: <span class="text-danger">{{product.category_name}}</span></h6>
+      <div class="container">
+        <div class="row">
+          <div class="col-6 align-self-center">
+            <h5 class="text-center">Precio:</h5>
+            <h5 class="text-center">De: <span class="through h6 text-danger">{{product.purchase_price}}</span></h5>
+            <h5 class="text-center">Por: <span>{{product.offer_price}}</span></h5>
+          </div>
+          <div class="col-6 align-self-center">
+            <label class="text-center">Cantidad: <input class="form-control" type="number" min="1" name="quantity" [(ngModel)]="quantity" (click)="clickQuantity()"></label>
+            <button class="btn btn-primary btn-block" (click)="addCarProduct(product, this)">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

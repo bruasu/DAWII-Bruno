@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutService } from 'src/app/service/produt.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  products: object;
+  eventProduct:string = "allProducts";
+
+  quantityCar: any;
+
+  constructor(
+    private Sproduct: ProdutService
+  ) { }
 
   ngOnInit() {
+    if(this.eventProduct == "allProducts"){
+      this.getProducts({name: "allProducts"});
+    }
+  }
+  getProducts(e){
+    if(e.name == "allProducts"){
+      this.Sproduct.selectProducts(100).subscribe((response) => {
+        if(response){
+          this.products = response;
+        }
+      }, (err) => {
+        console.log(err);
+      });
+    }
+  }
+  eventQuantityCar(e){
+    this.quantityCar = e;
   }
 
 }
