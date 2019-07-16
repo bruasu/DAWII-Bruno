@@ -6,9 +6,7 @@ class User extends user{
     }
     cInsertUser(data, res){
         this.setUserdatas(data);
-
         if(this.password == this.repassword){
-
             this.insertUser((err, rows, fields) => {
                 if(!err){
                     if(rows){
@@ -27,8 +25,7 @@ class User extends user{
                     }else{
                         res.status(400).json(err.sqlMessage);
                     }
-                }
-                
+                }                
             });    
         }else{
             let response = {
