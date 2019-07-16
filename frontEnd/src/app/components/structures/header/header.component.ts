@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   session:boolean;
   checkAdmin:boolean = true;
   @Input() quantityCar: any;
+  @Output() eventCar:EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router) {
 
@@ -27,6 +28,9 @@ export class HeaderComponent implements OnInit {
       this.checkAdmin = false;
     }
     
+    this.eventModificationCar();
+  }
+  eventModificationCar(){
     let cards = JSON.parse(sessionStorage.getItem('car'));
     this.quantityCar = Object.keys(cards).length;
   }
@@ -44,6 +48,9 @@ export class HeaderComponent implements OnInit {
   }
   adminSession(){
     this.router.navigate(['/admin']);
+  }
+  eventClick(e){
+    this.eventCar.emit(e);
   }
 
 }

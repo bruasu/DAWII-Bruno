@@ -36,6 +36,8 @@ export class ContainerProductUniqueComponent implements OnInit {
         if(car[product.id_product].quantity != this.quantity){
           car[product.id_product] = {
             id_product: product.id_product,
+            name: product.name,
+            price: product.purchase_price,
             quantity: this.quantity
           };
           sessionStorage.setItem('car', JSON.stringify(car));
@@ -43,6 +45,8 @@ export class ContainerProductUniqueComponent implements OnInit {
       }else{
         car[product.id_product] = {
           id_product: product.id_product,
+          name: product.name,
+          price: product.purchase_price,
           quantity: this.quantity
         };
         sessionStorage.setItem('car', JSON.stringify(car));
@@ -50,6 +54,8 @@ export class ContainerProductUniqueComponent implements OnInit {
     }else{
       car[product.id_product] = {
         id_product: product.id_product,
+        name: product.name,
+        price: product.purchase_price,
         quantity: this.quantity
       };
       sessionStorage.setItem('car', JSON.stringify(car));

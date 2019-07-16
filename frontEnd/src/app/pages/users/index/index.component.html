@@ -1,5 +1,8 @@
-<app-header [quantityCar]="quantityCar"></app-header>
-<app-nav-category></app-nav-category>
-<div>
+<app-header [quantityCar]="quantityCar" (eventCar)="eventView($event)"></app-header>
+<app-nav-category  (eventView)="eventView($event)"></app-nav-category>
+<div *ngIf="views == 'products'">
     <app-container-products [products]="products" (quantityCar)="eventQuantityCar($event)"></app-container-products>
+</div>
+<div *ngIf="views == 'car'">
+    <app-car-producrs (eventDeleteCar)=eventQuantityCar($event)></app-car-producrs>
 </div>

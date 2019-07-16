@@ -10,6 +10,7 @@ export class NavCategoryComponent implements OnInit {
 
   categories: object;
   @Output() eventCategoryRequest:EventEmitter<any> = new EventEmitter();
+  @Output() eventView:EventEmitter<any> = new EventEmitter();
 
   constructor(
     private Scategory: CategoryService
@@ -27,6 +28,7 @@ export class NavCategoryComponent implements OnInit {
   }
   eventCategory(e){
     this.eventCategoryRequest.emit(e);
+    this.eventView.emit('products');
   }
 
 }

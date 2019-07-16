@@ -8,6 +8,8 @@ import { ProdutService } from 'src/app/service/produt.service';
 })
 export class IndexComponent implements OnInit {
 
+  views = "products";
+
   products: object;
   eventProduct:string = "allProducts";
 
@@ -35,6 +37,9 @@ export class IndexComponent implements OnInit {
   }
   eventQuantityCar(e){
     this.quantityCar = e;
+  }
+  eventView(e){
+    this.views = e;
   }
 
 }

@@ -7,6 +7,7 @@ import { NavCategoryComponent } from './nav-category/nav-category.component';
 import { ContainerProductsComponent } from './container-products/container-products.component';
 import { ContainerProductUniqueComponent } from './container-product-unique/container-product-unique.component';
 import { FormsModule } from '@angular/forms';
+import { CarProducrsComponent } from './car-producrs/car-producrs.component';
 
 
 
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     IndexComponent,
     NavCategoryComponent,
     ContainerProductsComponent,
-    ContainerProductUniqueComponent
+    ContainerProductUniqueComponent,
+    CarProducrsComponent
   ],
   imports: [
     CommonModule,

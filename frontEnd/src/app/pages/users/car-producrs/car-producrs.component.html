@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Precio Total</th>
+          <th>Eliminar</th>
+        </tr>    
+      </thead>
+      <tbody *ngFor="let product of products">
+        <tr>
+          <td>{{product.id_product}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.price * product.quantity}}</td>
+          <td><button class="btn btn-danger" (click)="eventdelete(product)">Eliminar</button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total:</td>
+        <td>{{total}}</td>
+        <td></td>
+      </tfoot>
+    </table>
+  </div>
+</div>
