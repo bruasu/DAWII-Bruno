@@ -4,4 +4,7 @@
         <app-container-product-unique [product]="product" (quantityCar)="eventQuantityCar($event)"></app-container-product-unique>
     </div>
   </div>
+  <div *ngIf="products == null">
+    <h2 class="text-center">No ahí productos en esta Categoria</h2>
+  </div>
 </div>

@@ -33,6 +33,17 @@ export class IndexComponent implements OnInit {
       }, (err) => {
         console.log(err);
       });
+    }else{
+      this.Sproduct.selectProductsCategory(e.name).subscribe((response) =>{
+        if(response){
+          this.products = response;
+        }
+        if(response.msj == 'empty'){
+          this.products = null;
+        }
+      }, (err) =>{
+        console.log(err);
+      });
     }
   }
   eventQuantityCar(e){

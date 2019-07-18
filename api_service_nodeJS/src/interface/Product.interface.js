@@ -13,6 +13,7 @@ class Product{
 
         this.category_name;
         this.QueryQuantity; 
+        this.searchName;
     }
     setProductDatas(data){
         if(data.id_product){
@@ -50,6 +51,9 @@ class Product{
         }
         if(data.QueryQuantity){
             this.QueryQuantity = data.QueryQuantity;
+        }
+        if(data.searchName){
+            this.searchName = data.searchName;
         }
     }
 }

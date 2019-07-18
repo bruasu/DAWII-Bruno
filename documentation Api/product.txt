@@ -35,6 +35,41 @@ path: /api/product
 
 path: /api/product
     description: 
+        - search product category
+    method: GET
+        send:
+            params Url
+           -> /category/Gatos
+            description -> typeSearch / category shearch       
+
+        response:
+            - success: ->status = 200
+
+                [{
+                    "id_product": 2,
+                    "id_category": 1,
+                    "name": "test",
+                    "sale_price": 200,
+                    "purchase_price": 120,
+                    "offer_price": 180,
+                    "description": "best product",
+                    "quantity": 10,
+                    "status": "active"
+                  }]
+            - errors: ->status = 400
+                -errors in mysql
+                    {
+                        "err": "message"                    
+                    }
+                -no value found
+                    {
+                        err: "empty"
+                    }
+
+* -------------------------------------------- *
+
+path: /api/product
+    description: 
         - insert product
     method: POST
         send:

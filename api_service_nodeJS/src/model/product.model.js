@@ -25,7 +25,13 @@ class product extends Product{
         this.mysqlConnection.query(query,[this.QueryQuantity],(err, rows, fields) => {
             fun(err, rows, fields);
         });
+    }
+    selectProductQuantityName(fun){
+        let query = "select products.*, categories.name as category_name from products inner join categories on categories.id_category = products.id_category where categories.name = ?";
 
+        this.mysqlConnection.query(query,[this.searchName],(err, rows, fields) => {
+            fun(err, rows, fields);
+        });
     }
 }
 

@@ -16,4 +16,7 @@ export class ProdutService {
   selectProducts(quantity: number):Observable<any>{
     return this._http.get('http://localhost:3000/api/product/quantity/'+quantity);
   }
+  selectProductsCategory(category: string):Observable<any>{
+    return this._http.get('http://localhost:3000/api/product/category/'+category);
+  }
 }

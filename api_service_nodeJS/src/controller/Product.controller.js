@@ -58,6 +58,25 @@ class Product extends product{
             }
         });
     }
+    cSelectProductQuantityName(data, res){
+        this.setProductDatas(data);
+
+        this.selectProductQuantityName((err, rows, fields) =>{
+            if(!err){
+                if(rows){
+                    if(rows.length == 0){
+                        res.json({msj: "empty"});
+                    }else{
+                        res.json(rows);
+                    }
+                }
+            }else{
+                res.status(400).json({
+                    err: err.sqlMessage
+                });
+            }
+        });
+    }
 }
 
 module.exports = Product;

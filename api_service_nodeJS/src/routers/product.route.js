@@ -20,6 +20,15 @@ router.get('/:search/:value', (req, res) => {
 
         product.cSelectProductQuantity(data, res);
     }
+    if(search == 'category'){
+        let nameSearch = req.params.value;
+
+        let data ={
+            searchName: nameSearch
+        }
+
+        product.cSelectProductQuantityName(data, res);
+    }
 });
 
 router.post('/', (req, res) => {
